@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="dis">0</h2>
+    <button onclick="update('increment')">Add</button>
+    <button onclick="update('decrement')">Decrement</button>
+    <button onclick="update('reset')">Reset</button>
+
+
+
+    <script>
+        function counter() {
+            let count = 0;
+
+            return {
+                increment: () => ++count,
+                decrement: () => --count,
+                reset: () => count = 0,
+                value: () => count,
+            };
+        }
+        let x = counter();
+        const display = document.getElementById("dis");
+
+        function update(action) {
+            display.textContent = x[action]();
+        }
+    </script>
+
+</body>
+
+</html>
